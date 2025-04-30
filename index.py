@@ -10,7 +10,7 @@ load_dotenv()
 key = os.getenv("GEMIN_API_KEY")
 
 client = OpenAI(
-    api_key=key,
+    api_key="",
     base_url="https://generativelanguage.googleapis.com/v1beta/openai/",
 )
 
@@ -25,9 +25,11 @@ message = [{"role": "system", "content": systemPrompt.system_prompt}]
 query = input("Please enter The URL or PR no: ")
 
 # hello()
-api.pr()
+result = api.pr()
 
-message.append({"role": "user", "content": query})
+message.append
+
+message.append({"role": "user", "content": str(result)})
 
 res = client.chat.completions.create(
     model="gemini-2.0-flash",
